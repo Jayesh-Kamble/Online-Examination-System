@@ -1,0 +1,120 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url("{% static 'img/BG.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            position: relative;
+        }
+
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .navbar {
+            background-color: rgba(76, 175, 80, 0.8);
+            color: white;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+        }
+
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 5em 2em;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            color: #fff;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .btn-raised {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin: 0.5em;
+            font-weight: bold;
+        }
+
+        .btn-raised:hover {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2em 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <nav class="navbar navbar-light">
+        <marquee behavior="scroll" direction="left" scrollamount="10">
+        <div class="navbar-brand" style="font-size: 30px; font-family: Cambria;">
+            Welcome to the Online Examination System
+        </div>
+    </marquee>
+    </nav>
+    <div class="main">
+        <h1>Effortless Online Exams</h1>
+        <h1 style="font-size: 2.5em;">For Professors and Students</h1>
+        <div class="button-container">
+            <form method="get" action="{% url 'faculty-login' %}">
+                <button type="submit" class="btn btn-raised">Faculty Login</button>
+            </form>
+            <form method="get" action="{% url 'faculty-register' %}">
+                <button type="submit" class="btn btn-raised">Faculty Signup</button>
+            </form>
+            <form method="get" action="{% url 'login' %}">
+                <button type="submit" class="btn btn-raised">Student Login</button>
+            </form>
+            <form method="get" action="{% url 'register' %}">
+                <button type="submit" class="btn btn-raised">Student Signup</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Exam Portal | All rights reserved
+    </footer>
+</body>
+</html>
